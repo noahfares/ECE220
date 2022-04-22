@@ -35,43 +35,41 @@ int main(void) {
     first = current;
 
     for (i=1; i<SIZE; i++) {
+
+        new = (struct book *)malloc(sizeof(struct book));
+        len = (int)strlen(book_title[i]);
+        new->title = (char *) malloc((len+1) * sizeof(char));
+        strcpy(new->title, book_title[i]);
+        len = (int)strlen(book_author[i]);
+        new->author = (char *) malloc((len+1) * sizeof(char));
+        strcpy(new->author, book_author[i]); 
+
         if (i == 1) {
-        // set the values for the new node
 
-        len = (int)strlen(book_title[i+1]);
-        current->title = (char *) malloc((len+1) * sizeof(char));
-        strcpy(current->title, book_title[i+1]);
-        len = (int)strlen(book_author[i+1]);
-        current->author = (char *) malloc((len+1) * sizeof(char));
-        strcpy(current->author, book_author[i+1]); 
+            new->previous = current;
+            new->next = NULL;
+            current->next = new;
+            current->previous = first;
+            current = new;
 
-        new = current;
-        current->next = new;
-        new->previous = current;
-        new->next = NULL;  
+        } else {
 
-        } else if (i == 2) {
-        // set the values for the current node
-        first->next = current;
-        current->previous = first;
-        current->next = new;
-
-        len = (int)strlen(book_title[i-1]);
-        current->title = (char *) malloc((len+1) * sizeof(char));
-        strcpy(current->title, book_title[i-1]);
-        len = (int)strlen(book_author[i-1]);
-        current->author = (char *) malloc((len+1) * sizeof(char));
-        strcpy(current->author, book_author[i-1]);
-
-        printf("%s", current->author);
-        printf("%s", new->author);
-        printf("%s", first->author);  
-
+            new->previous = current;
+            new->next = NULL;
+            current->next = new;
+            current->previous = first;
         }
+
+        
     }
 
-    i = 0;
+    first->next = current;
+
+    current = first;
     while (current != NULL) {
+        printf("Author of %s is %s \n", current->title, current->author);
+
+        current = current->next;
         
     }
 
