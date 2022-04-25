@@ -36,10 +36,10 @@ int main() {
 
     fiction *library[2];
 
-    fiction a1(a1_author, a1_title, a1_pub, a1_pub_yr);
+    fiction a1(a1_author, a1_title, a1_pub, a1_pub_yr);//creating the objects
     fiction a2(a2_author, a2_title, a2_pub, a2_pub_yr);
 
-    library[0] = &a1;
+    library[0] = &a1;//storing the addresses of the objects
     library[1] = &a2;
 
     library[0]->print();
@@ -57,22 +57,22 @@ int main() {
     return 0;
 }
 
-book ::book(){
+book ::book(){//constructor
     publisher[0] = 0;
     pub_year = 0;
 }
 
-book ::book(char *publish, int year) {
+book ::book(char *publish, int year) {//constructor
     strcpy(publisher,publish);
     pub_year = year;
 }
 
-void book::print(){
+void book::print(){//print for the book class
     cout << "\nPublisher: " << publisher << endl;
     cout << "Year Published: " << pub_year << endl;
 }
 
-fiction ::fiction(char * auth, char * book_name, char *publish, int year) {
+fiction ::fiction(char * auth, char * book_name, char *publish, int year) {//constructor for fiction class
     strcpy(author,auth);
     strcpy(title,book_name);
     strcpy(publisher,publish);
@@ -80,7 +80,7 @@ fiction ::fiction(char * auth, char * book_name, char *publish, int year) {
 
 }
 
-void fiction::print() {
+void fiction::print() {//print for he subclass
     book::print();
     cout << "Author: " << author << endl;
     cout << "Title: " << title << endl;   

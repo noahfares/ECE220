@@ -36,7 +36,7 @@ int main(void) {
 
     for (i=1; i<SIZE; i++) {
 
-        new = (struct book *)malloc(sizeof(struct book));
+        new = (struct book *)malloc(sizeof(struct book));//setting the memory for each node
         len = (int)strlen(book_title[i]);
         new->title = (char *) malloc((len+1) * sizeof(char));
         strcpy(new->title, book_title[i]);
@@ -44,15 +44,15 @@ int main(void) {
         new->author = (char *) malloc((len+1) * sizeof(char));
         strcpy(new->author, book_author[i]); 
 
-        if (i == 1) {
+        if (i == 1) {//setting up the current node
 
             new->previous = current;
             new->next = NULL;
             current->next = new;
             current->previous = first;
-            current = new;
+            current = new;//simply using the memory allocation from new node to store the current node information 
 
-        } else {
+        } else {//setting up the new node
 
             new->previous = current;
             new->next = NULL;
@@ -67,7 +67,7 @@ int main(void) {
 
     current = first;
     while (current != NULL) {
-        printf("Author of %s is %s \n", current->title, current->author);
+        printf("Author of %s is %s \n", current->title, current->author);//this will simply print then move to the next node 
 
         current = current->next;
         

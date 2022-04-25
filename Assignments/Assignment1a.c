@@ -11,55 +11,7 @@ Assignment 1a
 
 int main()
 {
-    //the two variables used for storing the users input
-    int user_input1, user_input2;
-
-    while (user_input1 >= 0 || user_input2 >= 0)
-    {
-        //we can determine which of the two values are the larger and smaller one and we can store those into these variables for ease
-        int max = 0, min = 0, i, sum = 0; 
-
-        printf("\nPlease input two numbers:\n");
-        printf("1:");
-        scanf("%d", &user_input1);
-
-        printf("2:");
-        scanf("%d", &user_input2);
-
-        if (user_input1 == user_input2)
-        {
-            printf("\nPlease start over again and enter two different numbers\n");
-            return 0;
-        }
-
-        if (user_input1 < 0 || user_input2 < 0)
-        {
-            printf("\nPlease start over again and enter postitve numbers\n");
-            return 0;
-        }
-
-        //this if statement will store the inputed values into the max and min variables
-        if (user_input1 > user_input2)
-        {
-            max = user_input1;
-            min = user_input2;
-            i = min;
-        }
-        else
-        {
-            max = user_input2;
-            min = user_input1;
-            i = min;
-        }
-
-        while (i <= max)
-        {
-            sum += i;
-            i++;
-        }
-
-        printf("\nThe result is %d.\n", sum);
-    }
-
+    int array[20] = {1, 20, [5]=23, (15+3)=44, [6] =23, 35, 55};
+    printf("%d %d %d\n", array[7], array[19]);
     return 0;
 }
